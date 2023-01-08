@@ -3,7 +3,7 @@ var result = document.getElementById("result").contentWindow.document;
 editor.setTheme("ace/theme/light");
 editor.session.setMode("ace/mode/javascript");
 editor.session.setUseWorker(false);
-editor.setValue("size(400, 400);\nframeRate(60);\n\ndraw = function() {\n\tbackground(220);\n};");
+editor.setValue("size(400, 400);\n\ndraw = function() {\n\tbackground(220);\n};");
 function showRes() {
   result.open();
   result.writeln("<!DOCTYPE html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'><style>body {margin: 0; padding: 0;}</style></head><body><script src='https://cdn.jsdelivr.net/processing.js/1.4.8/processing.js'></script><script>function pjs(processing) {with(processing) {frameRate(60);" + editor.getValue() + "}}var canvas = document.createElement('canvas');document.body.appendChild(canvas);var processing = new Processing(canvas, pjs);</script></body></html>");
