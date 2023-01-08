@@ -1,0 +1,36 @@
+#editor {
+  width: 50%;
+  height: 95%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+#result {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  border: none;
+  border-left: 1px solid #CCC;
+}
+#save, #reload {
+  position: absolute;
+  top: 0;
+  border: none;
+  background-color: #BBB;
+  color: white;
+  cursor: pointer;
+  height: 5%;
+  width: 25%;
+  font-size: 200%;
+}
+#save:hover, #reload:hover {
+  background-color: gray;
+}
+#save {
+  left: 0;
+}
+#reload {
+  left: 25%;
+}
