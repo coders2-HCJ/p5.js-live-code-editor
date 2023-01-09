@@ -2,7 +2,7 @@ var editor = ace.edit("editor");
 var result = document.getElementById("result");
 editor.setTheme("ace/theme/light");
 editor.session.setMode("ace/mode/javascript");
-editor.setValue("function setup() {\n\tcreateCanvas(innerWidth, innerHeight);\n}\nfunction draw() {\n\tbackground(220);\n}");
+editor.setValue("function setup() {\n\tcreateCanvas(400, 400);\n}\nfunction draw() {\n\tbackground(220);\n}");
 function showRes() {
   var p5 = "<!DOCTYPE html><html><head><meta charset='utf-8'><style>html, body {margin: 0; padding: 0;}</style></head><body><script src='https://cdn.jsdelivr.net/npm/p5/lib/p5.min.js'></script><script>" + editor.getValue() + "</script></body></html>";
   result.src = "data:text/html;charset=utf-8," + encodeURIComponent(p5);
