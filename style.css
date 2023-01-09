@@ -1,36 +1,34 @@
+#editor, #result {
+	position: absolute;
+	width: 50%;
+}
 #editor {
-  width: 50%;
-  height: 95%;
-  position: absolute;
-  left: 0;
-  bottom: 0;
+	height: 95%;
+	bottom: 0;
+	left: 0;
 }
 #result {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  width: 49.5%;
-  height: 100%;
-  border: none;
-  border-left: 1px solid #CCC;
+	height: 100%;
+	top: 0;
+	left: 50%;
 }
-#save, #reload {
-  position: absolute;
-  top: 0;
-  border: none;
-  background-color: #BBB;
-  color: white;
-  cursor: pointer;
-  height: 5%;
-  width: 25%;
-  font-size: 200%;
+#save, #run {
+	position: absolute;
+	top: 0;
+	border: none;
+	background-color: #BBB;
+	color: white;
+	cursor: pointer;
+	height: 5%;
+	width: 25%;
+	font-size: 200%;
 }
-#save:hover, #reload:hover {
-  background-color: gray;
+#save:hover, #run:hover {
+	background-color: gray;
 }
 #save {
-  left: 0;
+	left: 0;
 }
-#reload {
-  left: 25%;
+#run {
+	left: 25%;
 }
