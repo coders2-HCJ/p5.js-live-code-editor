@@ -1,16 +1,12 @@
 var editor = ace.edit("editor");
-var result = document.getElementById("result").contentWindow.document;
+var result = document.getElementById("result");
 editor.setTheme("ace/theme/light");
 editor.session.setMode("ace/mode/javascript");
-editor.session.setUseWorker(false);
-editor.setValue("size(400, 400);\n\ndraw = function() {\n\tbackground(220);\n};");
+editor.setValue("function setup() {\n\tcreateCanvas(innerWidth, innerHeight);\n}\nfunction draw() {\n\tbackground(220);\n}");
 function showRes() {
-  result.open();
-  result.writeln("<!DOCTYPE html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'><style>body {margin: 0; padding: 0;}</style></head><body><script src='https://cdn.jsdelivr.net/processing.js/1.4.8/processing.js'></script><script>function pjs(processing) {with(processing) {frameRate(60);" + editor.getValue() + "}}var canvas = document.createElement('canvas');document.body.appendChild(canvas);var processing = new Processing(canvas, pjs);</script></body></html>");
-  result.close();
+  var p5 = "<!DOCTYPE html><html><head><meta charset='utf-8'><style>html, body {margin: 0; padding: 0;} #loading {z-index: -1; position: absolute; color: gray; font-weight: bold; font-size: 500%; top: 50%; text-align: center;}</style></head><body><div id='loading'>Loading...</div><script src='https://cdn.jsdelivr.net/npm/p5/lib/p5.min.js'></script><script>" + editor.getValue() + "</script></body></html>";
+  result.src = "data:text/html;charset=utf-8," + encodeURIComponent(p5);
 }
-editor.session.on("change", showRes);
-showRes();
 function download(filename, text) {
   var element = document.createElement("a");
   element.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(text));
@@ -23,4 +19,5 @@ function download(filename, text) {
 document.getElementById("save").onclick = function() {
   download("script.js", editor.getValue());
 };
-document.getElementById("reload").onclick = function() {showRes();};
+document.getElementById("run").onclick = function() {showRes();};
+showRes();
